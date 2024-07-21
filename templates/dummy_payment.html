@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="{{ url_for('static', filename='src/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Dummy Payment</title>
+</head>
+<body class="flex justify-center items-center">
+    <div class="card mt-20 border-solid h-48 w-56 border-stone-950 bg-slate-200 rounded ">
+
+        <h1 class="font-poppins text-3xl text-center"> Payment</h1>
+        <form action="{{ url_for('dummy_payment') }}" method="post">
+            <input type="hidden" name="user_id" value="{{ current_user.id }}">
+            <input type="hidden" name="razorpay_order_id" value="DUMMY_ORDER_{{ current_user.id }}_12345">
+            <input type="hidden" name="razorpay_payment_id" value="DUMMY_PAY_{{ current_user.id }}_12345">
+            <label class="font-semibold ml-6 " for="amount">Amount:</label>
+            <input class="bg-gray-100 mt-5 rounded w-40"type="text" id="amount" name="amount" value="{{ total_price }}" placeholder="{{ total_price }}"required>
+            <br>
+            <button class="mt-5 bg-blue-300 px-3 py-2 rounded text-white font-semibold ml-36"  type="submit">Pay Now</button>
+        </form>
+    </div>
+</body>
+</html>

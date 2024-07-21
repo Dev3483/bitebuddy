@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Verify OTP</title>
+</head>
+<body class="bg-slate-200">
+  <div class="flex justify-center items-center">
+   <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full mt-10">
+     <h1 class="text-2xl font-bold mb-4 text-center">Verify OTP</h1>
+
+    <form method="post" action="/verify_otp">
+      <label for="otp" class="text-lg ">OTP:</label>
+         <input type="text" id="otp" name="otp"class="ml-5 bg-slate-200 rounded w-72 py-1 font-julius indent-3 text-black " required>
+         <button type="submit" class="bg-blue-300 text-white text-lg px-4 py-2 rounded ml-32 mt-5 font-poppins" id="btn">Submit</button>
+         <p id="text" class="ml-32 font-julius text-black text-lg font-normal"></p>
+    </form>
+  </div>
+</div>
+<script>
+  const btn = document.getElementById('btn');
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const otp = document.getElementById('otp').value;
+    if (otp.length == 0) {
+      document.getElementById('text').innerHTML = "Please enter OTP";
+      } else {
+        document.getElementById('text').innerHTML = "OTP verified";
+        }
+        });
+</script>
+</body>
+</html>

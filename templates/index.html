@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+     <link rel="stylesheet" href="{{ url_for('static', filename='src/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Homepage</title>
+    <style>
+        input[type="text"] {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-[url('static/assets/food.jpg')] bg-cover h-[60vh] ">
+        <nav class="relative flex justify-end h-20">
+
+            <button id="login" class="bg-black hover:bg-gray-800  text-white  py-2 px-4 rounded my-5  mx-3  font-poppins font-medium">
+               <a href="login">Login</a>
+            </button>
+            <button id="signup" class="bg-black hover:bg-gray-800 text-white font-medium py-2 px-4 rounded my-5  mx-3 font-poppins">
+                <a href="signup">SignUp</a>
+            </button>
+        </nav>
+        <div class="text-center my-16">
+            <h1 class="text-white  font-extralight font-julius lg:text-7xl  text-5xl  w-full my-2">WELCOME TO BITEBUDDY</h1>
+            <h4 class="text-white text-3xl font-thin font-julius lg:text-4xl my-5">Discover the best Food & Drinks here</h4>
+        </div>
+        
+        <div class="w-full px-4 md:px-0">
+    <div class="relative flex justify-center" id="search-form">
+        <i class="absolute fa-solid fa-search text-gray-400 py-4 left-4 md:left-[26rem] text-xl"></i>
+        <input type="text" class="bg-white h-14 w-full md:w-1/2 px-11 indent-6 rounded-lg text-xl focus:outline-none hover:cursor-pointer" placeholder="Search Food & Drinks here..." id="searchfood">
+        <span class="absolute top-4 right-4 md:right-[27rem] border-l pl-4">
+            <i class="fa-solid fa-microphone text-xl text-gray-500 hover:text-black hover:cursor-pointer"></i>
+        </span>
+    </div>
+</div>
+
+
+
+
+    </div> 
+    <div class="lg:flex justify-evenly">
+        <div class="flex flex-col justify-start items-center my-10 ">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden  w-[40vw]">
+               
+                <img class="w-full h-64 object-cover" src="{{ url_for('static', filename='assets/meal.jpg') }}" alt="food">
+
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Order Online</h2>
+                    <p class="text-gray-700 leading-tight mb-4 text-lg">
+                        Enjoy the convenience of ordering your favorite dishes from the comfort of your home. Our diverse menu offers a variety of delicious options to satisfy every craving. Click below to explore our menu and place your order now.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <a href="login"><span class="text-gray-800 font-semibold cursor-pointer hover:text-blue-400">View more →</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col justify-start items-center my-10">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden  w-[40vw]">
+                
+                <img class="w-full h-64 object-cover" src="{{ url_for('static', filename='assets/rest.jpg') }}" alt="resro">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Dining</h2>
+                    <p class="text-gray-700 leading-tight mb-4 text-lg">
+                        Experience a delightful dining atmosphere in our beautifully decorated restaurant. Perfect for gatherings, special occasions, or a casual meal. Discover our exquisite dishes and make a reservation to enjoy a memorable dining experience.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                           <a href="findrestaurant"> <span class="text-gray-800 font-semibold cursor-pointer hover:text-blue-400">Find Out→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-full">
+        <h1 class="text-7xl text-center font-poppins font-semibold my-4">Best Dishes</h1>
+        <div class="p-20 flex flex-wrap items-center justify-center">
+        
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+                    <img class="relative w-40 h-40" src="{{ url_for('static', filename='assets/pizza.png') }}" alt="pizza">
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.5</p>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Pizza</span>
+                        <span
+                            class="block cursor-pointer bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+                
+                    <img  class="relative w-40" src="{{ url_for('static', filename='assets/burger.png') }}" alt="Burger">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.7</p>
+                      
+                    </div>
+
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Burger</span>
+                        <span
+                            class="block cursor-pointer bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-purple-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+ 
+                    <img class="relative w-40 h-40" src="{{ url_for('static', filename='assets/pasta1.png') }}" alt="Pasta">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.9</p>
+                        
+                    </div>
+
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Pasta</span>
+                        <span
+                            class="block bg-white cursor-pointer rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-blue-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+                
+                    <img class="relative w-40 h-32" src="{{ url_for('static', filename='assets/pavbhaji.png') }}" alt="Pavbhaji">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.0</p>
+                    </div>
+            
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Pavbhaji</span>
+                        <span
+                            class="block cursor-pointer bg-white rounded-full text-blue-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-red-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+    
+                    <img class="relative w-48" src="{{ url_for('static', filename='assets/chole.png') }}" alt="Chole">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.3</p>
+                    </div>
+            
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Chole-Kulcha</span>
+                        <span
+                            class="block cursor-pointer bg-white rounded-full text-red-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-lime-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+
+                    <img class="relative w-48 " src="{{ url_for('static', filename='assets/rajma.png') }}" alt="Rajma">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.6</p>
+                    </div>
+            
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Rajma-Chawal</span>
+                        <span
+                            class="block cursor-pointer bg-white rounded-full text-lime-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+
+    <div class="h-full">
+        <h1 class="text-7xl text-center font-poppins font-semibold my-4">Beverages</h1>
+        <div class="p-20 flex flex-wrap items-center justify-center">
+    
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)"
+                        fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+                    
+                    <img class="relative w-52 h-52" src="{{ url_for('static', filename='assets/chai.png') }}" alt="Tea">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.5</p>
+                    </div>
+    
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Tea</span>
+                        <span
+                            class="block cursor-pointer bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)"
+                        fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+                    
+                    <img class="relative w-52 h-52" src="{{ url_for('static', filename='assets/coffee.png') }}" alt="Coffee">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.7</p>
+    
+                    </div>
+    
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Coffee</span>
+                        <span
+                            class="block cursor-pointer bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-purple-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)"
+                        fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+                    
+                    <img class="relative w-52 h-52" src="{{ url_for('static', filename='assets/shake.png') }}" alt="shake">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.9</p>
+    
+                    </div>
+    
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Milkshakes</span>
+                        <span
+                            class="block bg-white cursor-pointer rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-blue-500 rounded-lg w-96 shadow-lg">
+                <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+                    style="transform: scale(1.5); opacity: 0.1;">
+                    <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                    <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                </svg>
+                <div class="relative pt-10 px-10 flex items-center justify-center">
+                    <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                    </div>
+                    
+                    <img class="relative w-52 h-52" src="{{ url_for('static', filename='assets/coke.png') }}" alt="Cocacola">
+
+                </div>
+                <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                        <p class="ms-2 text-sm font-bold text-gray-900 dark:text-white">4.0</p>
+                    </div>
+            
+                    <div class="flex justify-between">
+                        <span class="block font-semibold text-xl">Soft Drinks</span>
+                        <span
+                            class="block cursor-pointer bg-white rounded-full text-blue-500 text-xs font-bold px-3 py-2 leading-none flex items-center">Order Now</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="relative bg-slate-100 pt-8 pb-6">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+            <div class="w-full lg:w-6/12 px-4">
+                <h4 class="text-3xl fonat-semibold text-blueGray-700">Let's keep in touch!</h4>
+                <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
+                    Find us on any of these platforms, we respond 1-2 business days.
+                </h5>
+                <div class="mt-6 lg:mb-0 mb-6">
+                    <button
+                        class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-twitter"></i></button><button
+                        class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-facebook-square"></i></button><button
+                        class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-dribbble"></i></button><button
+                        class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-github"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="flex flex-wrap items-top mb-6">
+                    <div class="w-full lg:w-4/12 px-4 ml-auto">
+                        <span class="block uppercase text-blueGray-500 text-xl font-semibold mb-2">Useful Links</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="about" class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    >About Us</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="">Blog</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="">Github</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full lg:w-4/12 px-4">
+                        <span class="block uppercase text-blueGray-500 text-xl font-semibold mb-2">Other
+                            Resources</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="">Terms &amp; Conditions</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="contactus">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-6 border-blueGray-300">
+        <div class="flex flex-wrap items-center md:justify-between justify-center">
+            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                <div class="text-sm text-blueGray-500 font-semibold py-1">
+                    Copyright © <span id="get-current-year">2024</span>
+                    <a href="" class="text-blueGray-500 hover:text-gray-800" target="_blank"> Bitebuddy by
+                        <a href="" class="text-blueGray-500 hover:text-blueGray-800">Dev</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display a map</title>
+  <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.min.js"></script>
+  <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='src/style.css') }}">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    #findRestaurants { position: absolute; bottom: 10px; left: 10px; z-index: 1000; background: white; padding: 10px; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <button id="findRestaurants" class="font-julius rounded-md cursor-pointer font-semibold text-slate-700">Find Nearby Restaurants</button>
+  <script>
+    maptilersdk.config.apiKey = '{{ api_key }}';
+    
+    const styles = {
+      "Streets": `https://api.maptiler.com/maps/streets/style.json?key=${maptilersdk.config.apiKey}`,
+      "Basic": `https://api.maptiler.com/maps/basic/style.json?key=${maptilersdk.config.apiKey}`,
+      "Bright": `https://api.maptiler.com/maps/bright/style.json?key=${maptilersdk.config.apiKey}`,
+      "Pastel": `https://api.maptiler.com/maps/pastel/style.json?key=${maptilersdk.config.apiKey}`,
+      "Topo": `https://api.maptiler.com/maps/topo/style.json?key=${maptilersdk.config.apiKey}`,
+      "Hybrid": `https://api.maptiler.com/maps/hybrid/style.json?key=${maptilersdk.config.apiKey}`
+    };
+    
+    const selectedStyle = styles.Basic;
+
+    const map = new maptilersdk.Map({
+      container: 'map',
+      style: selectedStyle,
+      center: [16.62662018, 49.2125578],
+      zoom: 14,
+    });
+
+    map.on('styleimagemissing', function(e) {
+      const id = e.id;
+      if (id) {
+        map.loadImage('path/to/your/icons/' + id + '.png', function(error, image) {
+          if (!error) {
+            map.addImage(id, image);
+          }
+        });
+      }
+    });
+
+    function createMarker(lng, lat, text) {
+      new maptilersdk.Marker()
+        .setLngLat([lng, lat])
+        .setPopup(new maptilersdk.Popup().setText(text))
+        .addTo(map);
+    }
+
+    document.getElementById('findRestaurants').addEventListener('click', () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const userLocation = [position.coords.longitude, position.coords.latitude];
+         
+          map.setCenter(userLocation);
+
+          // Fetch map data from OSM API
+          const bbox = `${userLocation[0] - 0.01},${userLocation[1] - 0.01},${userLocation[0] + 0.01},${userLocation[1] + 0.01}`;
+          const url = `https://api.openstreetmap.org/api/0.6/map?bbox=${bbox}`;
+
+          fetch(url)
+            .then((response) => response.text())
+            .then((xml) => {
+              const parser = new DOMParser();
+              const xmlDoc = parser.parseFromString(xml, 'text/xml');
+              const nodes = xmlDoc.getElementsByTagName('node');
+              const limitedNodes = Array.from(nodes).slice(0, 3);
+              limitedNodes.forEach(node => {
+                const lat = node.getAttribute('lat');
+                const lon = node.getAttribute('lon');
+                const tags = node.getElementsByTagName('tag');
+                let displayName = 'Restaurant';
+                for (let i = 0; i < tags.length; i++) {
+                  if (tags[i].getAttribute('k') === 'name') {
+                    displayName = tags[i].getAttribute('v');
+                    break;
+                  }
+                }
+                createMarker(lon, lat, displayName);
+              });
+            })
+            .catch((error) => console.error('Error fetching data from OSM API:', error));
+
+        }, (error) => {
+          console.error('Error getting location:', error);
+        });
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+      }
+    });
+  </script>
+</body>
+</html>

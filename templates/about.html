@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='src/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>About Us</title>
+</head>
+<body>
+       <nav class="relative px-4 py-4   bg-slate-200  h-16 w-full">
+		
+		<div class="lg:hidden ">
+    <button class="navbar-burger flex text-black text-2xl p-3 ">
+        <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Mobile menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
+    </button>
+</div>
+        <div class="py-4 flex justify-center h-16 w-full ">
+		<ul class="  text-lg font-poppins font-medium hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2   lg:flex lg:justify-center lg:w-auto ">
+			         <li class="mx-6 tracking-wider"><a href="main">Home</a></li>
+                    <li class="mx-6 tracking-wider"><a href="about">About Us</a></li>
+                    <li class="mx-6 tracking-wider"><a href="history">History</a></li>
+                    <li class="mx-6 tracking-wider"><a href="cart">My Cart</a></li>
+                    <li class="mx-6 tracking-wider"><a href="profile">Profile</a></li>
+                    <li class="mx-6 tracking-wider"><a href="favourite">Favourites</a>
+		</ul>
+        </div>
+	</nav>
+	<div class="navbar-menu relative z-50 hidden">
+		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+			<div class="flex items-center mb-8">
+
+				<button class="navbar-close">
+					<svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
+			<div>
+				<ul>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="main">Home</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="about">About Us</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="history">History</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="cart">My Cart</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="profile">Profile</a>
+					</li>
+                    <li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="favourite">Favourites</a>
+					</li>
+				</ul>
+			</div>
+			
+		</nav>
+	</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const burger = document.querySelectorAll('.navbar-burger');
+    const menu = document.querySelectorAll('.navbar-menu');
+
+    if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+            burger[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+
+    const close = document.querySelectorAll('.navbar-close');
+    const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+    if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+            close[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+
+    if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+            backdrop[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+});
+    <h1 class="mt-10 text-center text-3xl font-julius font-medium">Discover the Delicious World of BiteBuddy: Your Ultimate Online Food Ordering Destination</h1>
+<div class="ml-5 mt-5">
+    <p class="text-xl font-julius font-normal mt-3 text-center">Welcome to BiteBuddy, the online food ordering website designed to cater to food lovers of all ages! Whether you're a busy professional, a student, or just someone who loves good food, BiteBuddy is here to make your food ordering experience seamless and enjoyable. </p>
+    <h2 class="text-2xl font-julius font-normal text-center mt-5">What is BiteBuddy? </h2>
+    <p class="text-xl font-julius font-normal text-center mt-3">BiteBuddy is an innovative platform that takes the hassle out of food ordering. With BiteBuddy, you can explore a wide variety of delicious dishes, add your favorites to a special list for later, and place orders with just a few clicks. Our user-friendly interface ensures that everyone, regardless of age or tech-savviness, can easily navigate and enjoy our service.</p>
+    <h2 class="text-2xl font-julius font-normal text-center mt-5">Key Features</h2>
+    <ul class="ml-3 mr-3 mt-3">
+        <li>
+            <p class="font-normal font-julius text-xl"><b class="font-medium">Favorites List:</b>Love a dish but not ready to order? Add it to your favorites and come back anytime to place your order.</p>
+        </li>
+        <li>
+            <p class="font-normal font-julius text-xl"><b class="font-medium">Downloadable Bills:</b>After completing your payment, you can easily download your bill for record-keeping.</p>
+        </li>
+        <li>
+            <p class="font-normal font-julius text-xl "><b class="font-medium">User-Friendly Interface:</b>Our platform is designed with you in mind, offering a clean and intuitive layout that makes ordering food a breeze.</p>
+        </li>
+        <li>
+            <p class="font-normal font-julius text-xl "><b class="font-medium">Order History:</b>Keep track of all your past  payments right within the website.</p>
+        </li>
+        <li>
+            <p class="font-normal font-julius text-xl "><b class="font-medium">Account Required:</b>To provide personalized service and ensure secure transactions, all users must create an account on BiteBuddy.</p>
+        </li>
+    </ul>
+    <h2 class="text-2xl font-julius font-normal text-center mt-5">Technology Behind BiteBuddy</h2>
+    <ul class="ml-3 mr-3 mt-3">
+        <li >
+            <p class="font-normal font-julius text-xl "><b class="font-medium">Frontend:</b>  HTML, Tailwind CSS, JavaScript, and a touch of AJAX for a responsive and interactive user experience.</p>
+        </li>
+        <li>
+            <p class="font-normal font-julius text-xl "><b class="font-medium">Backend:</b>Flask, a lightweight Python web framework that powers our application's core functionality.</p>
+        </li>
+        <li>
+            <p class="font-normal font-julius text-xl "><b class="font-medium">Database:</b>SQLite, a reliable and efficient database system that securely stores all user and order information.</p>
+        </li>
+    </ul>
+    <h2 class="text-2xl font-julius font-normal text-center mt-5">Who Can Use BiteBuddy?</h2>
+    <p class="text-xl font-julius font-normal text-center mt-3">BiteBuddy is designed for everyone! Our goal is to provide a platform that is accessible and enjoyable for people of all ages. Whether you're ordering lunch for the office, dinner for the family, or a late-night snack for yourself, BiteBuddy is the perfect companion for all your food cravings.</p>
+    <h2 class="text-2xl font-julius font-normal text-center mt-5">Future Plans</h2>
+    <p class="text-xl font-julius font-normal text-center mt-3">At BiteBuddy, we are constantly working to enhance your experience. Stay tuned for exciting new features, expanded food options, and even more convenient ways to enjoy your favorite meals. Our team is dedicated to making BiteBuddy the ultimate food ordering destination.</p>
+    <h2 class="text-2xl font-julius font-normal text-center mt-5">Join the BiteBuddy Community</h2>
+    <p class="text-xl font-julius font-normal text-center mt-3">Ready to dive into a world of deliciousness? Sign up today and start exploring all that BiteBuddy has to offer.</p>
+
+</div>
+</body>
+</html>

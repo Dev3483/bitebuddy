@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+.slider {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            scroll-snap-align: center;
+            min-width: 450px;
+            box-sizing: border-box;
+        }
+        
+
+
+.playwrite-dk-uloopet-dev {
+  font-family: "Playwrite DK Uloopet", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+@tailwind utilities;
+
+
+
+
+
+

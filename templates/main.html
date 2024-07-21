@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Uloopet:wght@100..400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="static/src/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Main Page</title>
+</head>
+
+<body class="bg-slate-200">
+     <nav class="relative px-4 py-4   bg-slate-200  h-16 w-full">
+		
+		<div class="lg:hidden ">
+    <button class="navbar-burger flex text-black text-2xl p-3 ">
+        <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Mobile menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
+    </button>
+</div>
+        <div class="py-4 flex justify-center h-16 w-full ">
+		<ul class="  text-lg font-poppins font-medium hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2   lg:flex lg:justify-center lg:w-auto ">
+			         <li class="mx-6 tracking-wider"><a href="main">Home</a></li>
+                    <li class="mx-6 tracking-wider"><a href="about">About Us</a></li>
+                    <li class="mx-6 tracking-wider"><a href="history">History</a></li>
+                    <li class="mx-6 tracking-wider"><a href="cart">My Cart</a></li>
+                    <li class="mx-6 tracking-wider"><a href="profile">Profile</a></li>
+                    <li class="mx-6 tracking-wider"><a href="favourite">Favourites</a>
+		</ul>
+        </div>
+	</nav>
+	<div class="navbar-menu relative z-50 hidden">
+		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+			<div class="flex items-center mb-8">
+
+				<button class="navbar-close">
+					<svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
+			<div>
+				<ul>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="main">Home</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="about">About Us</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="history">History</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="cart">My Cart</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="profile">Profile</a>
+					</li>
+                    <li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="favourite">Favourites</a>
+					</li>
+				</ul>
+			</div>
+			
+		</nav>
+	</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const burger = document.querySelectorAll('.navbar-burger');
+    const menu = document.querySelectorAll('.navbar-menu');
+
+    if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+            burger[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+
+    const close = document.querySelectorAll('.navbar-close');
+    const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+    if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+            close[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+
+    if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+            backdrop[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+});
+</script>
+    <div class="sliderAx">
+            <div id="slider-1" class="h-[50vh] w-full">
+        <div class="h-full text-white py-24 px-10 bg-red-500 flex flex-col md:flex-row justify-around items-center">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <p class="md:text-3xl text-lg mb-10 leading-none playwrite-dk-uloopet-dev">Are you a pizza? Because every slice of you makes life so much better!</p>
+                <a href="#pizza" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Order Now</a>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <img class="h-52 md:h-80" src="{{ url_for('static', filename='assets/pizza1.png') }}" alt="pizza">
+            </div>
+        </div> <!-- container -->
+        <br>
+    </div>
+
+        <div id="slider-2" class="h-[50vh] w-full">
+        <div class="h-full text-white py-24 px-10 bg-blue-500 flex flex-col md:flex-row justify-around items-center">
+            <div class="text-center md:text-left mb-10 md:mb-0">
+                <p class="md:text-3xl text-lg mb-10 leading-none playwrite-dk-uloopet-dev">Are you a burger? Because with you, I've found my perfect match, layer by layer.</p>
+                <a href="#burger" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Order Now</a>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <img class="h-52 md:h-80" src="{{ url_for('static', filename='assets/burger1.png') }}" alt="burger">
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div id="slider-3" class="h-[50vh] w-full">
+        <div class="h-full text-white py-24 px-10 bg-yellow-400 flex flex-col md:flex-row justify-around items-center">
+            <div class="text-center md:text-left mb-10 md:mb-0">
+                <p class="md:text-3xl text-lg mb-10 leading-none playwrite-dk-uloopet-dev">Are you a dosa? Because you make my heart flip and sizzle with excitement!</p>
+                <a href="#southindian" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Order Now</a>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <img class="h-52 md:h-80" src="{{ url_for('static', filename='assets/idli.png') }}" alt="idli">
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div id="slider-4" class="h-[50vh] w-full">
+        <div class="h-full text-white py-24 px-10 bg-emerald-500 flex flex-col md:flex-row justify-around items-center">
+            <div class="text-center md:text-left mb-10 md:mb-0">
+                <p class="md:text-3xl text-lg mb-10 leading-none playwrite-dk-uloopet-dev">Are you a sandwich? Because I feel like I'm the missing ingredient to complete you.</p>
+                <a href="#sandwich" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Order Now</a>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <img class="h-52 md:h-80" src="{{ url_for('static', filename='assets/sandwich.png') }}" alt="sandwich">
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div id="slider-5" class="h-[50vh] w-full">
+        <div class="h-full text-white py-24 px-10 bg-violet-500 flex flex-col md:flex-row justify-around items-center">
+            <div class="text-center md:text-left mb-10 md:mb-0">
+                <p class="md:text-3xl text-lg mb-10 leading-none playwrite-dk-uloopet-dev">Are you a traditional Indian thali? Because you have everything I need and more</p>
+                <a href="#thalis" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Order Now</a>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <img class="h-52 md:h-80" src="{{ url_for('static', filename='assets/thali.png') }}" alt="thali">
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div id="slider-6" class="h-[50vh] w-full">
+        <div class="h-full text-white py-24 px-10 bg-orange-500 flex flex-col md:flex-row justify-around items-center">
+            <div class="text-center md:text-left mb-10 md:mb-0">
+                <p class="md:text-3xl text-lg mb-10 leading-none playwrite-dk-uloopet-dev">Are you biryani? Because just one taste of you and I'm hooked for life</p>
+                <a href="#biryani" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Order Now</a>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <img class="h-52 md:h-80" src="{{ url_for('static', filename='assets/biryani.png') }}" alt="biryani">
+            </div>
+        </div>
+        <br>
+    </div>
+    </div>
+    <div class="flex justify-around w-24 mx-auto pb-2 -my-6">
+        <button id="sButton1" onclick="sliderButton1() " class="bg-gray-100  rounded-full w-2 h-2 pb-2"></button>
+        <button id="sButton2" onclick="sliderButton2() " class="bg-gray-100  rounded-full w-2 h-2 pb-2"></button>
+        <button id="sButton3" onclick="sliderButton3() " class="bg-gray-100  rounded-full w-2 h-2 pb-2"></button>
+        <button id="sButton4" onclick="sliderButton4() " class="bg-gray-100  rounded-full w-2 h-2 pb-2"></button>
+        <button id="sButton5" onclick="sliderButton5() " class="bg-gray-100  rounded-full w-2 h-2 pb-2"></button>
+        <button id="sButton6" onclick="sliderButton6() " class="bg-gray-100  rounded-full w-2 h-2 pb-2"></button>
+    </div>
+<!-- <h2 class="mt-16 text-2xl font-poppins ml-5"></h2> -->
+ <div class="flex items-center justify-center">
+
+     <div class="w-full max-w-[90vw] mt-16">
+         <div class="flex items-center justify-center">
+             <div class="flex-grow border-t border-gray-400"></div>
+             <span class="mx-4 text-center text-2xl">What's on your Mind?</span>
+             <div class="flex-grow border-t border-gray-400"></div>
+         </div>
+     </div>
+ </div>
+<div class="grid lg:grid-cols-7 mt-10 grid-cols-3">
+    <div  class="h-60">
+        <a href="#biryani">
+        <img class="h-36 ml-5" src="{{ url_for('static', filename='assets/biryani.png') }}" alt="biryani">
+        <h2 class="font-poppins text-xl text-center">Biryani</h2>
+        </a>
+    </div>
+    <div  class="h-60 mx-auto" >
+        <a href="#chinese">
+        <img class="h-36" src="{{ url_for('static', filename='assets/chinese.png') }}" alt="Chinese">
+        <h2 class="font-poppins text-xl text-center">Chinese</h2>
+        </a>
+    </div>
+    <div  class="h-60 mx-auto">
+        <a href="#pizza">
+        <img class="h-36" src="{{ url_for('static', filename='assets/pizza1.png') }}" alt="pizza">
+        <h2 class="font-poppins text-xl text-center">Pizza</h2>
+        </a>
+    </div>
+    <div  class="h-60 mx-auto">
+        <a href="#southindian">
+        <img class="h-36" src="{{ url_for('static', filename='assets/idli.png') }}" alt="southindian">
+        <h2 class="font-poppins text-xl text-center">South Indian</h2>
+        </a>
+    </div>
+    <div class="h-60 mx-auto">
+    <a href="#sandwich">
+        <img class="h-36" src="{{ url_for('static', filename='assets/sandwich.png') }}" alt="sandwich">
+        <h2 class="font-poppins text-xl text-center">Sandwich</h2>
+    </a>
+   </div>
+    <div  class="h-60 mx-auto">
+        <a href="#thalis">
+        <img class="h-36" src="{{ url_for('static', filename='assets/thali.png') }}" alt="thali">
+        <h2 class="font-poppins text-xl text-center">Thali</h2>
+    </a>
+    </div>
+    <div  class="h-60 mx-auto">
+        <a href="#northindian"><img class="h-36" src="{{ url_for('static', filename='assets/rajma.png') }}" alt="North-Indian">
+            <h2 class="font-poppins text-xl text-center">North Indian</h2>
+        </a>
+      
+    </div>
+    <div  class="h-60 mx-auto">
+        <a href="#icecream"><img class="h-36" src="{{ url_for('static', filename='assets/icemain.png') }}" alt="North-Indian">
+            <h2 class="font-poppins text-xl text-center">Icecream</h2>
+        </a>
+      
+    </div>
+    <div  class="h-60 mx-auto">
+        <a href="#beverages"><img class="h-36" src="{{ url_for('static', filename='assets/bevmain.png') }}" alt="North-Indian">
+            <h2 class="font-poppins text-xl text-center">Beverages</h2>
+        </a>
+      
+    </div>
+</div>
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="sandwich">Sandwich</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+   {% for food in foods if food.category == 'Sandwiches' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="chinese">Indian Chinese</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category == 'Indian Chinese' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16">Indian Street Food</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " id="sandwich">
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category == 'Indian Street Food' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="southindian" >South Indian</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category == 'South Indian' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="thalis">Thalis</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category == 'Thalis' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="biryani">Biryani</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category == 'Biryani' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="pizza">Pizza</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category == 'Pizza' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="northindian">North Indian</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category =='North Indian' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="icecream">Icecream</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category == 'Icecream' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+
+<div class="flex items-center justify-center">
+
+    <div class="w-full max-w-[90vw] mt-16">
+        <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+    </div>
+</div>
+ 
+<h1 class="text-3xl mt-3 ml-16" id="beverages">Beverages</h1>
+<div class=" flex items-center justify-center h-80 mt-16 " >
+    <div class="container mx-auto p-4">
+        <div class="slider flex space-x-4">
+ {% for food in foods if food.category == 'Beverages' %}
+            <div class="card bg-white rounded-lg shadow-lg h-96 
+            w-80 ">
+                <div class="h-60 w-full bg-cover bg-center bg-no-repeat rounded-lg" style="background-image: url('{{ url_for('static', filename=food.image) }}');"></div>
+                <div class="relative left-3 top-2">
+                    <h1 class="text-2xl font-poppins">{{ food.name }}</h1>
+                    <h4 class="font-poppins font-semibold">Price-₹{{ food.price }}</h4>
+                   <div class="flex justify-between">
+                    
+                <form action="{{ url_for('add_to_cart', food_id=food.id) }}" method="post">
+                <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border mt-4 border-blue-500 hover:border-transparent rounded">
+                    Add to Cart
+                </button>
+            </form>
+            <form action="{{ url_for('like_food', food_id=food.id) }}" method="post">
+                <button type="submit"><i class="fa-regular fa-heart text-3xl text-red-500 cursor-pointer mt-4 mr-7"></i></button>
+            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<footer class="relative bg-slate-100 pt-8 pb-6 mt-20">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+            <div class="w-full lg:w-6/12 px-4">
+                <h4 class="text-3xl fonat-semibold text-blueGray-700">Let's keep in touch!</h4>
+                <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
+                    Find us on any of these platforms, we respond 1-2 business days.
+                </h5>
+                <div class="mt-6 lg:mb-0 mb-6">
+                    <button
+                        class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-twitter"></i></button><button
+                        class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-facebook-square"></i></button><button
+                        class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-dribbble"></i></button><button
+                        class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-github"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="flex flex-wrap items-top mb-6">
+                    <div class="w-full lg:w-4/12 px-4 ml-auto">
+                        <span class="block uppercase text-blueGray-500 text-xl font-semibold mb-2">Useful Links</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="about" class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    >About Us</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="">Blog</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="">Github</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full lg:w-4/12 px-4">
+                        <span class="block uppercase text-blueGray-500 text-xl font-semibold mb-2">Other
+                            Resources</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="">Terms &amp; Conditions</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-lg"
+                                    href="contactus">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-6 border-blueGray-300">
+        <div class="flex flex-wrap items-center md:justify-between justify-center">
+            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                <div class="text-sm text-blueGray-500 font-semibold py-1">
+                    Copyright © <span id="get-current-year">2024</span>
+                    <a href="" class="text-blueGray-500 hover:text-gray-800" target="_blank"> Bitebuddy by
+                        <a href="" class="text-blueGray-500 hover:text-blueGray-800">Dev</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    var cont = 0;
+    function loopSlider() {
+        var xx = setInterval(function () {
+            switch (cont) {
+                case 0: {
+                    $("#slider-1").fadeOut(100);
+                    $("#slider-2").delay(100).fadeIn(100);
+                    $("#slider-3").fadeOut(100);
+                    $("#slider-4").fadeOut(100);
+                    $("#slider-5").fadeOut(100);
+                    $("#slider-6").fadeOut(100);
+
+
+                    $("#sButton1").removeClass("bg-gray-300");
+                    $("#sButton2").addClass("bg-gray-300");
+                    $("#sButton3").removeClass("bg-gray-300");
+                    $("#sButton4").removeClass("bg-gray-300");
+                    $("#sButton5").removeClass("bg-gray-300");
+                    $("#sButton6").removeClass("bg-gray-300");
+                    cont = 1;
+
+                    break;
+                }
+                case 1:
+                    {
+
+                        $("#slider-1").fadeOut(100);
+                        $("#slider-2").fadeOut(100);
+                        $("#slider-3").delay(100).fadeIn(100);
+                        $("#slider-4").fadeOut(100);
+                        $("#slider-5").fadeOut(100);
+                        $("#slider-6").fadeOut(100);
+
+                        $("#sButton1").removeClass("bg-gray-300");
+                        $("#sButton2").removeClass("bg-gray-300");
+                        $("#sButton3").addClass("bg-gray-300");
+                        $("#sButton4").removeClass("bg-gray-300");
+                        $("#sButton5").removeClass("bg-gray-300");
+                        $("#sButton6").removeClass("bg-gray-300");
+
+                        cont = 2;
+
+                        break;
+                    }
+                case 2:
+                    {
+                        $("#slider-1").fadeOut(100);
+                        $("#slider-2").fadeOut(100);
+                        $("#slider-3").fadeOut(100);
+                        $("#slider-4").delay(100).fadeIn(100);
+                        $("#slider-5").fadeOut(100);
+                        $("#slider-6").fadeOut(100);
+
+                        $("#sButton1").removeClass("bg-gray-300");
+                        $("#sButton2").removeClass("bg-gray-300");
+                        $("#sButton3").removeClass("bg-gray-300");
+                        $("#sButton4").addClass("bg-gray-300");
+                        $("#sButton5").removeClass("bg-gray-300");
+                        $("#sButton6").removeClass("bg-gray-300");
+
+                        cont = 3;
+
+                        break;
+                    }
+                case 3:
+                    {
+                        $("#slider-1").fadeOut(100);
+                        $("#slider-2").fadeOut(100);
+                        $("#slider-3").fadeOut(100);
+                        $("#slider-4").fadeOut(100);
+                        $("#slider-5").delay(100).fadeIn(100);
+                        $("#slider-6").fadeOut(100);
+
+                        $("#sButton1").removeClass("bg-gray-300");
+                        $("#sButton2").removeClass("bg-gray-300");
+                        $("#sButton3").removeClass("bg-gray-300");
+                        $("#sButton4").removeClass("bg-gray-300");
+                        $("#sButton5").addClass("bg-gray-300");
+                        $("#sButton6").removeClass("bg-gray-300");
+                        
+                        cont = 4;
+
+                        break;
+                    }
+                case 4:
+                    {
+                        $("#slider-1").fadeOut(100);
+                        $("#slider-2").fadeOut(100);
+                        $("#slider-3").fadeOut(100);
+                        $("#slider-4").fadeOut(100);
+                        $("#slider-5").fadeOut(100);
+                        $("#slider-6").delay(100).fadeIn(100);
+
+                        $("#sButton1").removeClass("bg-gray-300");
+                        $("#sButton2").removeClass("bg-gray-300");
+                        $("#sButton3").removeClass("bg-gray-300");
+                        $("#sButton4").removeClass("bg-gray-300");
+                        $("#sButton5").removeClass("bg-gray-300");
+                        $("#sButton6").addClass("bg-gray-300");
+
+                        cont = 5;
+
+                        break;
+                    }
+                     case 5:
+                    {
+                        $("#slider-1").delay(100).fadeIn(100);
+                        $("#slider-2").fadeOut(100);
+                        $("#slider-3").fadeOut(100);
+                        $("#slider-4").fadeOut(100);
+                        $("#slider-5").fadeOut(100);
+                        $("#slider-6").fadeOut(100);
+
+                        $("#sButton1").addClass("bg-gray-300");
+                        $("#sButton2").removeClass("bg-gray-300");
+                        $("#sButton3").removeClass("bg-gray-300");
+                        $("#sButton4").removeClass("bg-gray-300");
+                        $("#sButton5").removeClass("bg-gray-300");
+                        $("#sButton6").removeClass("bg-gray-300");
+
+                        cont = 0;
+
+                        break;
+                    }
+
+            }
+        }, 6000);
+
+    }
+
+    function reinitLoop(time) {
+        clearInterval(xx);
+        setTimeout(loopSlider(), time);
+    }
+
+
+
+    function sliderButton1() {
+
+        $("#slider-1").delay(100).fadeIn(100);
+        $("#slider-2").fadeOut(100);
+        $("#slider-3").fadeOut(100);
+        $("#slider-4").fadeOut(100);
+        $("#slider-5").fadeOut(100);
+        $("#slider-6").fadeOut(100);
+
+        $("#sButton1").addClass("bg-gray-300");
+        $("#sButton2").removeClass("bg-gray-300");
+        $("#sButton3").removeClass("bg-gray-300");
+        $("#sButton4").removeClass("bg-gray-300");
+        $("#sButton5").removeClass("bg-gray-300");
+        $("#sButton6").removeClass("bg-gray-300");
+        reinitLoop(4000);
+        cont = 0
+
+    }
+
+    function sliderButton2() {
+        $("#slider-1").fadeOut(100);
+        $("#slider-2").delay(100).fadeIn(100);
+        $("#slider-3").fadeOut(100);
+        $("#slider-4").fadeOut(100);
+        $("#slider-5").fadeOut(100);
+        $("#slider-6").fadeOut(100);
+
+        $("#sButton1").removeClass("bg-gray-300");
+        $("#sButton2").addClass("bg-gray-300");
+        $("#sButton3").removeClass("bg-gray-300");
+        $("#sButton4").removeClass("bg-gray-300");
+        $("#sButton5").removeClass("bg-gray-300");
+        $("#sButton6").removeClass("bg-gray-300");
+
+        reinitLoop(4000);
+        cont = 1
+
+    }
+    function sliderButton3() {
+            $("#slider-1").fadeOut(100);
+            $("#slider-2").fadeOut(100);
+            $("#slider-3").delay(100).fadeIn(100);
+            $("#slider-4").fadeOut(100);
+            $("#slider-5").fadeOut(100);
+            $("#slider-6").fadeOut(100);
+
+            $("#sButton1").removeClass("bg-gray-300");
+            $("#sButton2").removeClass("bg-gray-300");
+            $("#sButton3").addClass("bg-gray-300");
+            $("#sButton4").removeClass("bg-gray-300");
+            $("#sButton5").removeClass("bg-gray-300");
+            $("#sButton6").removeClass("bg-gray-300");
+            reinitLoop(4000);
+            cont = 2
+
+        }
+    function sliderButton4() {
+                $("#slider-1").fadeOut(100);
+                $("#slider-2").fadeOut(100);
+                $("#slider-3").fadeOut(100);
+                $("#slider-4").delay(100).fadeIn(100);
+                $("#slider-5").fadeOut(100);
+                $("#slider-6").fadeOut(100);
+
+                $("#sButton1").removeClass("bg-gray-300");
+                $("#sButton2").removeClass("bg-gray-300");
+                $("#sButton3").removeClass("bg-gray-300");
+                $("#sButton4").addClass("bg-gray-300");
+                $("#sButton5").removeClass("bg-gray-300");
+                $("#sButton6").removeClass("bg-gray-300");
+                reinitLoop(4000);
+                cont = 3
+
+            }
+
+        function sliderButton5() {
+                $("#slider-1").fadeOut(100);
+                $("#slider-2").fadeOut(100);
+                $("#slider-3").fadeOut(100);
+                $("#slider-4").fadeOut(100);
+                $("#slider-5").delay(100).fadeIn(100);
+                $("#slider-6").fadeOut(100);
+
+                $("#sButton1").removeClass("bg-gray-300");
+                $("#sButton2").removeClass("bg-gray-300");
+                $("#sButton3").removeClass("bg-gray-300");
+                $("#sButton4").removeClass("bg-gray-300");
+                $("#sButton5").addClass("bg-gray-300");
+                $("#sButton6").removeClass("bg-gray-300");
+                reinitLoop(4000);
+                cont = 4
+
+            }
+            function sliderButton6() {
+                    $("#slider-1").fadeOut(100);
+                    $("#slider-2").fadeOut(100);
+                    $("#slider-3").fadeOut(100);
+                    $("#slider-4").fadeOut(100);
+                    $("#slider-5").fadeOut(100);
+                    $("#slider-6").delay(100).fadeIn(100);
+
+                    $("#sButton1").removeClass("bg-gray-300");
+                    $("#sButton2").removeClass("bg-gray-300");
+                    $("#sButton3").removeClass("bg-gray-300");
+                    $("#sButton4").removeClass("bg-gray-300");
+                    $("#sButton5").removeClass("bg-gray-300");
+                    $("#sButton6").addClass("bg-gray-300");
+                    reinitLoop(4000);
+                    cont = 5
+
+                }
+
+    $(window).ready(function () {
+        $("#slider-6").hide();
+        $("#slider-5").hide();
+        $("#slider-4").hide();
+        $("#slider-3").hide();
+        $("#slider-2").hide();
+        $("#sButton1").addClass("bg-gray-300");
+
+        loopSlider();
+    });
+
+ 
+        
+
+        
+            var iTags = document.querySelectorAll('i.fa-heart');
+
+            iTags.forEach(function (tag) {
+                   let val = 0;
+                 tag.addEventListener('click', function () {
+                    if (val == 0) {
+                        tag.classList.remove("fa-regular");
+                        tag.classList.add("fa-solid", "text-red-500");
+                        val = 1;
+                    } else {
+                        tag.classList.remove("fa-solid", "text-red-500");
+                        tag.classList.add("fa-regular");
+                        tag.classList.add("text-red-500");
+                        val = 0;
+                    }
+                });
+            });
+
+        
+       
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!-- bill.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="{{ url_for('static', filename='src/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Bill</title>
+</head>
+<body>
+    <h1 class="font-poppins text-center text-3xl">Bill</h1>
+    <p class="font-poppins text-xl">Order ID: {{ order_id }}</p>
+    <p class="font-poppins text-xl">Payment ID: {{ payment_id }}</p>
+    <p class="font-poppins text-xl">Total Price: {{ total_price }}</p>
+    <hr>
+    <br>
+    <h2 class="font-poppins text-2xl">Items:</h2>
+    <ol>
+        {% for item in cart_items %}
+            <li class="text-lg font-poppins" >{{ item.food.name }} - {{ item.quantity }} x {{ item.price }}</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>

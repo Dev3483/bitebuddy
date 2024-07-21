@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='src/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Profile</title>
+</head>
+<body>
+     <nav class="relative px-4 py-4   bg-slate-200  h-16 w-full">
+		
+		<div class="lg:hidden ">
+    <button class="navbar-burger flex text-black text-2xl p-3 ">
+        <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Mobile menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
+    </button>
+</div>
+        <div class="py-4 flex justify-center h-16 w-full ">
+		<ul class="  text-lg font-poppins font-medium hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2   lg:flex lg:justify-center lg:w-auto ">
+			         <li class="mx-6 tracking-wider"><a href="main">Home</a></li>
+                    <li class="mx-6 tracking-wider"><a href="about">About Us</a></li>
+                    <li class="mx-6 tracking-wider"><a href="history">History</a></li>
+                    <li class="mx-6 tracking-wider"><a href="cart">My Cart</a></li>
+                    <li class="mx-6 tracking-wider"><a href="profile">Profile</a></li>
+                    <li class="mx-6 tracking-wider"><a href="favourite">Favourites</a>
+		</ul>
+        </div>
+	</nav>
+	<div class="navbar-menu relative z-50 hidden">
+		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+			<div class="flex items-center mb-8">
+
+				<button class="navbar-close">
+					<svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
+			<div>
+				<ul>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="main">Home</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="about">About Us</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="history">History</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="cart">My Cart</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="profile">Profile</a>
+					</li>
+                    <li class="mb-1">
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="favourite">Favourites</a>
+					</li>
+				</ul>
+			</div>
+			
+		</nav>
+	</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const burger = document.querySelectorAll('.navbar-burger');
+    const menu = document.querySelectorAll('.navbar-menu');
+
+    if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+            burger[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+
+    const close = document.querySelectorAll('.navbar-close');
+    const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+    if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+            close[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+
+    if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+            backdrop[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].classList.toggle('hidden');
+                }
+            });
+        }
+    }
+});
+</script>
+    <div class="flex justify-center items-center">
+   <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full mt-10">
+        <h1 class="text-2xl font-bold mb-4 text-center">User Profile</h1>
+        <div class="mb-4">
+            <p class="text-gray-700 font-julius text-xl mt-2"><strong>First Name:</strong> {{ current_user.first_name }}</p>
+            <p class="text-gray-700 font-julius text-xl mt-2"><strong>Last Name:</strong> {{ current_user.last_name }}</p>
+            <p class="text-gray-700 font-julius text-xl mt-2"><strong>Username:</strong> {{ current_user.username }}</p>
+            <p class="text-gray-700 font-julius text-xl mt-2"><strong>Email:</strong> {{ current_user.email }}</p>
+            <p class="text-gray-700 font-julius text-xl mt-2"><strong>Phone Number:</strong> {{ current_user.phone_number }}</p>
+            <p class="text-gray-700 font-julius text-xl mt-2"><strong>Address:</strong> {{ current_user.address }}</p>
+        </div>
+
+        <h2 class="text-xl font-semibold mb-2">Update Address</h2>
+        <form action="{{ url_for('update_address') }}" method="POST" class="mb-4">
+            <label for="address" class="block text-gray-700 mb-1">New Address:</label>
+            <input type="text" id="address" name="address" class="w-full p-2 border border-gray-300 rounded mb-2" required>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 font-medium rounded hover:bg-blue-600">Update Address</button>
+        </form>
+        <div class="flex justify-evenly">
+             <a href="{{ url_for('logout') }}" class=""><button type="submit" class="bg-red-500 text-white py-3 px-5 font-medium text-base rounded hover:bg-red">Logout</button></a>
+            
+             <a href="{{ url_for('delete_account') }}" class=""><button type="submit" class="bg-red-500 text-white py-3 px-4 font-medium text-base rounded hover:bg-red">Delete Account</button></a>
+            
+        
+    </div>
+    </div>
+</div>
+</body>
+</html>
