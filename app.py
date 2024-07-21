@@ -14,6 +14,7 @@ from werkzeug.security import generate_password_hash
 import random
 import string
 import os
+from bidi.algorithm import get_display
 from dotenv import load_dotenv
 
 load_dotenv()
