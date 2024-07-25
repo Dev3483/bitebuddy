@@ -18,7 +18,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bitebuddy.db'
@@ -38,7 +37,6 @@ login_manager.login_view = 'login'
 mail = Mail(app)
 serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
-
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -49,7 +47,6 @@ class Order(db.Model):
     user = db.relationship('User', backref='orders', lazy=True)
     items = db.relationship('OrderItem', backref='order', lazy=True)
 
-
 class OrderItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.Column(db.Integer, db.ForeignKey('order.id'), nullable=False)
@@ -58,9 +55,8 @@ class OrderItem(db.Model):
     price = db.Column(db.Float, nullable=False)
     food = db.relationship('Food', backref='order_items')
 
-
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
@@ -166,14 +162,14 @@ def add_user():
     last_name = request.form.get('lname')
     password = request.form.get('password')
 
-    # hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
     new_user = User(
         username=username,
         email=email,
         first_name=first_name,
         last_name=last_name,
-        password=password
+        password=hashed_password
     )
 
     db.session.add(new_user)
@@ -272,11 +268,13 @@ def verify_otp():
 def reset_password():
     if request.method == 'POST':
         password = request.form['password']
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         if 'email' in session:
             email = session['email']
             user = User.query.filter_by(email=email).first()
+            
             if user:
-                user.password = password
+                user.password = hashed_password
                 db.session.commit()
                 session.pop('otp', None)
                 session.pop('email', None)
@@ -521,7 +519,7 @@ def clear_favourites():
     print('Favourites cleared')
 
 
-#if __name__ == "__main__":
+if __name__ == "__main__":
     with app.app_context():
         db.create_all()
         db.session.query(Food).delete()
@@ -607,4 +605,4 @@ def clear_favourites():
             ]
             db.session.bulk_save_objects(initial_foods)
             db.session.commit()
-            #app.run(debug=True)
+            app.run(debug=True)
