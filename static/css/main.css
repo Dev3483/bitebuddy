@@ -658,7 +658,7 @@ input[type="range"]:active::-webkit-slider-thumb {
   width: 100%;
 }
 
-@media (min-width: 340px) {
+/* @media (min-width: 340px) {
   .container {
     max-width: 340px;
   }
@@ -692,7 +692,7 @@ input[type="range"]:active::-webkit-slider-thumb {
   .container {
     max-width: 1536px;
   }
-}
+} */
 
 .slider {
   overflow-x: auto;
